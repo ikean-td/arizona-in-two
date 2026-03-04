@@ -2,10 +2,23 @@
 
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="1_53q0u"]
 [ext_resource type="PackedScene" uid="uid://g1pipfodhsk6" path="res://world/world.tscn" id="1_pjrb6"]
+[ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime_enemy.tscn" id="3_xwkvk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwkvk"]
+size = Vector2(52, 52)
 
 [node name="Main" type="Node2D" unique_id=1701778157]
 
 [node name="World" parent="." unique_id=510803854 instance=ExtResource("1_pjrb6")]
 
-[node name="Player" parent="." unique_id=848334035 instance=ExtResource("1_53q0u")]
+[node name="Player" parent="." unique_id=848334035 groups=["Player"] instance=ExtResource("1_53q0u")]
 position = Vector2(320, 328)
+
+[node name="SlimeEnemy" parent="." unique_id=538334106 node_paths=PackedStringArray("chase_area") instance=ExtResource("3_xwkvk")]
+position = Vector2(317, 198)
+chase_area = NodePath("Area2D")
+
+[node name="Area2D" type="Area2D" parent="SlimeEnemy" unique_id=1734344351]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlimeEnemy/Area2D" unique_id=1337157882]
+shape = SubResource("RectangleShape2D_xwkvk")
