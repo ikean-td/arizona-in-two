@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< main
 uid="uid://bd2lhqoki31fe"
+=======
+uid="uid://cuvplywxqo4qn"
+>>>>>>> main
 path="res://.godot/imported/programmer_art-terrain.png-19c57aacf3adad6627ba4cfdcb066516.ctex"
 metadata={
 "vram_texture": false

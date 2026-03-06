@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://64dyavvcsnxe"]
+[gd_scene format=3 uid="uid://c7fw2aq587t44"]
 
 [ext_resource type="Script" uid="uid://drr6kmaw6ps8o" path="res://enemies/damage_component.gd" id="1_bii67"]
 
-[node name="Node" type="Node"]
+[node name="Node2D" type="Node2D"]
 script = ExtResource("1_bii67")
