@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="1_53q0u"]
 [ext_resource type="PackedScene" uid="uid://g1pipfodhsk6" path="res://world/world.tscn" id="1_pjrb6"]
 [ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime_enemy.tscn" id="3_xwkvk"]
+[ext_resource type="PackedScene" uid="uid://bufa3nu78h2f7" path="res://powerups/rapid_fire/rapid_fire.tscn" id="4_c651c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwkvk"]
 size = Vector2(52, 52)
@@ -12,6 +13,7 @@ size = Vector2(52, 52)
 [node name="World" parent="." unique_id=510803854 instance=ExtResource("1_pjrb6")]
 
 [node name="Player" parent="." unique_id=848334035 groups=["Player"] instance=ExtResource("1_53q0u")]
+unique_name_in_owner = true
 position = Vector2(320, 328)
 
 [node name="SlimeEnemy" parent="." unique_id=538334106 node_paths=PackedStringArray("chase_area") instance=ExtResource("3_xwkvk")]
@@ -22,3 +24,6 @@ chase_area = NodePath("Area2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlimeEnemy/Area2D" unique_id=1337157882]
 shape = SubResource("RectangleShape2D_xwkvk")
+
+[node name="rapid_fire_pickup_range" parent="." unique_id=1345856180 instance=ExtResource("4_c651c")]
+position = Vector2(338, 241)

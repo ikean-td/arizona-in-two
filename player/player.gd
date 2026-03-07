@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var shot_speed_multiplier = 1
+
 var speed: int = 70
 const deceleration: int = 10
 const acceleration: int = 50
@@ -63,7 +65,7 @@ func movement(delta):
 
 func shoot(delta):
 	# Check if can shoot
-	if time_since_last_shot < shot_cooldown_seconds:
+	if time_since_last_shot < shot_cooldown_seconds * (1.0/shot_speed_multiplier):
 		time_since_last_shot += delta
 		return
 	# Maps input to correct vector for velocity

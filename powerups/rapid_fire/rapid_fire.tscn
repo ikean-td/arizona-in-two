@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bufa3nu78h2f7"]
+
+[ext_resource type="Script" uid="uid://dclcoppop1jw8" path="res://powerups/rapid_fire/rapid_fire.gd" id="1_6qehv"]
+[ext_resource type="PackedScene" uid="uid://toi4p3qfayt1" path="res://globals/interactable.tscn" id="2_asobk"]
+[ext_resource type="Texture2D" uid="uid://dq3avqf8vlk6r" path="res://assets/temporary-tiles/programmer_art-objects.png" id="3_asobk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jwc4a"]
+
+[node name="rapid_fire_pickup_range" type="Area2D" unique_id=1345856180]
+script = ExtResource("1_6qehv")
+
+[node name="Interactable" parent="." unique_id=1780637745 node_paths=PackedStringArray("area") instance=ExtResource("2_asobk")]
+area = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=374160685]
+shape = SubResource("CircleShape2D_jwc4a")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1428393413]
+texture = ExtResource("3_asobk")
+region_enabled = true
+region_rect = Rect2(99, 35, 10, 10)
