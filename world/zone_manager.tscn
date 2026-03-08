@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://csxpe6vbmkdfx"]
+
+[ext_resource type="Script" uid="uid://lbqjb3skgser" path="res://world/zone_manager.gd" id="1_62u8p"]
+
+[node name="ZoneManager" type="Node2D" unique_id=1962602899]
+script = ExtResource("1_62u8p")
