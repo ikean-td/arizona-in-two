@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ukvstgcvpp0c"]
+
+[ext_resource type="PackedScene" uid="uid://toi4p3qfayt1" path="res://globals/interactable.tscn" id="1_4g6wu"]
+[ext_resource type="Script" uid="uid://bveb63l7dnuu7" path="res://powerups/sped_boost/speed_boost.gd" id="1_cqksh"]
+[ext_resource type="Texture2D" uid="uid://dq3avqf8vlk6r" path="res://assets/temporary-tiles/programmer_art-objects.png" id="2_cqksh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_san7f"]
+
+[node name="SpeedBoost" type="Area2D" unique_id=1252451708]
+script = ExtResource("1_cqksh")
+
+[node name="Interactable" parent="." unique_id=1780637745 node_paths=PackedStringArray("area") instance=ExtResource("1_4g6wu")]
+area = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1884472176]
+shape = SubResource("CircleShape2D_san7f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1492904335]
+texture = ExtResource("2_cqksh")
+region_enabled = true
+region_rect = Rect2(147, 35, 10, 10)

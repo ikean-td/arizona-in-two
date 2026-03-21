@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var shot_speed_multiplier = 1
 
+@export var speedMulti = 1.0
 var speed: int = 70
 const deceleration: int = 10
 const acceleration: int = 50
@@ -27,7 +28,7 @@ func movement(delta):
 	
 	if inputDir:
 		# Slowly increases the speed
-		velocity = lerp(velocity, speed * inputDir, delta * acceleration)
+		velocity = lerp(velocity, speed * speedMulti * inputDir, delta * acceleration)
 		
 		# Finds which direction in the X Axis
 		var horizontal := "" 
