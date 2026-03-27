@@ -7,10 +7,11 @@ var speed: int = 70
 const deceleration: int = 10
 const acceleration: int = 50
 
-@export var shouldBounce = false
 const BULLET = preload("uid://c7uqco4biuu2g")
 var shot_cooldown_seconds = 0.35
 var time_since_last_shot = 0
+
+var bounce_powerup = false
 
 var shotgun_powerup = false
 const SHOTGUN_SPREAD = PI/4 # spread per shot
@@ -87,7 +88,8 @@ func shoot(delta):
 		# sets bullet direction
 		instance.direction = inputDir
 		instance.position = position
-		instance.bulletBounce = shouldBounce
+		if bounce_powerup:
+			instance.bulletBounce = true
 	
 		if shotgun_powerup:
 			var bullet2 = BULLET.instantiate()
@@ -96,8 +98,9 @@ func shoot(delta):
 			bullet3.direction = inputDir.rotated(-SHOTGUN_SPREAD)
 			bullet2.position = position
 			bullet3.position = position
-			bullet2.bulletBounce = shouldBounce
-			bullet3.bulletBounce = shouldBounce
+			if bounce_powerup:
+				bullet2.bulletBounce = true
+				bullet3.bulletBounce = true
 			get_parent().add_child(bullet2)
 			get_parent().add_child(bullet3)
 		
@@ -107,6 +110,12 @@ func gain_powerup(power_name):
 	if power_name == "shotgun":
 		$ShotgunPowerTimer.start()
 		shotgun_powerup = true
+	if power_name == "bounces":
+		$BouncesPowerTimer.start()
+		bounce_powerup = true
 
 func _on_shotgun_power_timer_timeout():
 	shotgun_powerup = false
+
+func _on_bounces_power_timer_timeout() -> void:
+	bounce_powerup = false

@@ -20,4 +20,9 @@ texture = ExtResource("1_oul6g")
 wait_time = 10.0
 one_shot = true
 
+[node name="BouncesPowerTimer" type="Timer" parent="." unique_id=1085899655]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="timeout" from="ShotgunPowerTimer" to="." method="_on_shotgun_power_timer_timeout"]
+[connection signal="timeout" from="BouncesPowerTimer" to="." method="_on_bounces_power_timer_timeout"]

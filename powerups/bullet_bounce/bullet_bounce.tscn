@@ -1,16 +1,12 @@
 [gd_scene format=3 uid="uid://b1npi0iamldqa"]
 
 [ext_resource type="Script" uid="uid://dpcsvgjsjgn32" path="res://powerups/bullet_bounce/bullet_bounce.gd" id="1_864v1"]
-[ext_resource type="PackedScene" uid="uid://toi4p3qfayt1" path="res://globals/interactable.tscn" id="2_widvv"]
 [ext_resource type="Texture2D" uid="uid://dq3avqf8vlk6r" path="res://assets/temporary-tiles/programmer_art-objects.png" id="3_widvv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_widvv"]
 
 [node name="BulletBounce" type="Area2D" unique_id=687706781]
 script = ExtResource("1_864v1")
-
-[node name="Interactable" parent="." unique_id=1780637745 node_paths=PackedStringArray("area") instance=ExtResource("2_widvv")]
-area = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1227857842]
 shape = SubResource("CircleShape2D_widvv")
@@ -19,3 +15,5 @@ shape = SubResource("CircleShape2D_widvv")
 texture = ExtResource("3_widvv")
 region_enabled = true
 region_rect = Rect2(131, 35, 10, 10)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
