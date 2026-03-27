@@ -88,7 +88,7 @@ func shoot(delta):
 		instance.direction = inputDir
 		instance.position = position
 		instance.bulletBounce = shouldBounce
-    
+	
 		if shotgun_powerup:
 			var bullet2 = BULLET.instantiate()
 			var bullet3 = BULLET.instantiate()
@@ -96,8 +96,8 @@ func shoot(delta):
 			bullet3.direction = inputDir.rotated(-SHOTGUN_SPREAD)
 			bullet2.position = position
 			bullet3.position = position
-      bullet2.bulletBounce = shouldBounce
-      bullet3.bulletBounce = shouldBounce
+			bullet2.bulletBounce = shouldBounce
+			bullet3.bulletBounce = shouldBounce
 			get_parent().add_child(bullet2)
 			get_parent().add_child(bullet3)
 		
