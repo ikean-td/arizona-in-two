@@ -18,7 +18,7 @@ region_rect = Rect2(80, 16, 32, 32)
 shape = SubResource("CircleShape2D_7qkp1")
 
 [node name="Bullet Time" type="Timer" parent="." unique_id=2090382650]
-wait_time = 3.0
+wait_time = 5.0
 one_shot = true
 autostart = true
 

@@ -4,9 +4,9 @@ extends Area2D
 
 @export var damage: int = 10
 
-var spawnChance: float = (1/3)
+var spawnChance: float = 0.33
 
-var speed = 0.1
+var speed = 0.5
 
 func _physics_process(delta: float) -> void:
 	position += speed * direction * delta
