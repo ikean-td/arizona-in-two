@@ -21,6 +21,12 @@ enum ZONE_DIRECTION {
 }
 
 
+## Holds modified zones temporarily in memory.[br][br]
+## Pairs are formatted as their root node name as a [StringName] to their root
+## [Zone] node.
+var modified_zones: Dictionary[StringName, Zone]
+
+
 ## Changes the current zone to the next zone, specified by [param new_zone_packed]
 ## and then repositions the player near the corresponding teleport in the new zone
 ## based on [param direction].[br]
@@ -39,10 +45,24 @@ func change_zone(new_zone_packed: PackedScene, direction: ZONE_DIRECTION) -> voi
 		# Get effects
 		original_effects = get_player_effects(original_player)
 	
+	# Save the modified zone temporarily if there was a previous zone
+	if direction != ZONE_DIRECTION.NONE:
+		# Save a copy in memory
+		var modified_zone_root: Zone = get_tree().current_scene
+		modified_zones[modified_zone_root.name] = modified_zone_root
+		
+		# Remove from the current scene tree, but do not delete the node
+		modified_zone_root.get_parent().call_deferred("remove_child", modified_zone_root)
+	
 	
 	# Instantiate and change to the new zone
 	# (NOTE: change_scene_to_node is used to keep a copy of the scene)
 	var new_zone: Zone = new_zone_packed.instantiate()
+	
+	# Check if the new zone has a modified version saved
+	if new_zone.name in modified_zones:
+		# Switch to the modified root
+		new_zone = modified_zones[new_zone.name]
 	
 	get_tree().call_deferred("change_scene_to_node", new_zone)
 	await get_tree().scene_changed
