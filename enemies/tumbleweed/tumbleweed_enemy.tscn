@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://c4kv058u3oyf5"]
 
 [ext_resource type="Script" uid="uid://2sdcldg4n0q6" path="res://enemies/tumbleweed/tumbleweed_enemy.gd" id="1_r320e"]
-[ext_resource type="Texture2D" uid="uid://cca2ljyd4riel" path="res://assets/temporary-tiles/temp-tumble_bullet_programmer.png" id="2_1qs6t"]
+[ext_resource type="Texture2D" uid="uid://dq3avqf8vlk6r" path="res://assets/temporary-tiles/programmer_art-objects.png" id="2_r320e"]
 [ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="3_r320e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r320e"]
-radius = 14.142136
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hl85x"]
 radius = 89.94443
@@ -14,10 +13,9 @@ radius = 89.94443
 script = ExtResource("1_r320e")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1948865916]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_1qs6t")
+texture = ExtResource("2_r320e")
 region_enabled = true
-region_rect = Rect2(0, 0, 64, 64)
+region_rect = Rect2(48, 0, 16, 16)
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1510223874]
 shape = SubResource("CircleShape2D_r320e")
