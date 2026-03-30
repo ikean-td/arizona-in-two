@@ -229,3 +229,5 @@ position = Vector2(203, 267)
 
 [node name="BulletBounce" parent="." unique_id=687706781 instance=ExtResource("7_7taq6")]
 position = Vector2(265, 289)
+
+[node name="Bullets" type="Node" parent="." unique_id=583990625]

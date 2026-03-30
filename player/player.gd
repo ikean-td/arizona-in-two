@@ -93,7 +93,7 @@ func shoot(delta):
 		bullet1.excluded_nodes = [self]
 		if bounce_powerup:
 			bullet1.bulletBounce = true
-		get_parent().add_child(bullet1)
+		get_parent().find_child("Bullets", false).add_child(bullet1)
 		
 		if shotgun_powerup:
 			var bullet2 : Bullet = BULLET.instantiate()
@@ -109,8 +109,8 @@ func shoot(delta):
 			if bounce_powerup:
 				bullet2.bulletBounce = true
 				bullet3.bulletBounce = true
-			get_parent().add_child(bullet2)
-			get_parent().add_child(bullet3)
+			get_parent().find_child("Bullets", false).add_child(bullet2)
+			get_parent().find_child("Bullets", false).add_child(bullet3)
 		
 		time_since_last_shot += delta
 

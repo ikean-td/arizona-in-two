@@ -206,3 +206,5 @@ position_smoothing_speed = 4.0
 
 [node name="SlimeEnemy" parent="." unique_id=538334106 instance=ExtResource("4_jsfhi")]
 position = Vector2(377, 85)
+
+[node name="Bullets" type="Node" parent="." unique_id=413867922]

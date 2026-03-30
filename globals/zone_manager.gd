@@ -47,8 +47,15 @@ func change_zone(new_zone_packed: PackedScene, direction: ZONE_DIRECTION) -> voi
 	
 	# Save the modified zone temporarily if there was a previous zone
 	if direction != ZONE_DIRECTION.NONE:
-		# Save a copy in memory
 		var modified_zone_root: Zone = get_tree().current_scene
+		
+		# Remove any bullets in the scene before saving
+		var bullets_container := modified_zone_root.find_child("Bullets", false)
+		if bullets_container != null:
+			for bullet in bullets_container.get_children():
+				bullet.queue_free()
+		
+		# Save a copy in memory
 		modified_zones[modified_zone_root.name] = modified_zone_root
 		
 		# Remove from the current scene tree, but do not delete the node
