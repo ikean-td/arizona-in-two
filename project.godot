@@ -22,6 +22,7 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 
 Gamestate="*uid://csimanntnbc8v"
 SceneSwitcher="*uid://coq5ooci1rwse"
+ZoneManager="*uid://lbqjb3skgser"
 
 [display]
 

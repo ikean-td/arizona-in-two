@@ -3,7 +3,8 @@ extends Node2D
 ## A node containing a section, or zone, of a single world which can connect to
 ## other zones of the world.
 ##
-## Zones are loaded and unloaded by the [ZoneManager] node.[br][br]
+## Zones are changed by the [ZoneManager] node by changing the whole scene in
+## [method ZoneManager.change_zone].[br][br]
 ##
 ## The direction on the "filename" and "area" properties indicate which
 ## direction the scene change goes in. For example, the [member left_zone_filename]
@@ -14,10 +15,7 @@ extends Node2D
 ## and their [CollisionShape2D] node should be named "CollisionShape2D".
 
 
-## Signals when this zone should be changed and what direction the next zone is in.
-signal change_area_interacted(this_zone: Zone, direction: ZoneManager.ZONE_DIRECTION)
-
-## Base file path for where the zones are located.
+## Base file path to where the zones are located.
 const ZONE_PATH: StringName = "res://world/"
 
 
@@ -44,12 +42,6 @@ const ZONE_PATH: StringName = "res://world/"
 @export var down_zone_filename: StringName
 ## The interaction area for the zone [b]below[/b] this zone.
 @export var down_zone_area: Area2D
-
-
-## The default spawn location, positioned at [member Node2D.position].[br]
-## NOTE: This property is only required to be set for scenes which are the first
-## loaded scene when the game starts.
-@export var default_spawn: Node2D
 
 
 # The background TileMapLayer.
@@ -96,21 +88,36 @@ func adjust_camera_limits(camera: Camera2D) -> void:
 	camera.limit_bottom = y_max
 
 
-## Emits the [signal change_area_interacted] signal for the [ZoneManager] node.
-func _change_zone(direction: ZoneManager.ZONE_DIRECTION) -> void:
-	change_area_interacted.emit(self, direction)
-
-
 # Connects an Area2D's body_entered signal to the _change_zone() function
 func _connect_location(location: Area2D, direction: ZoneManager.ZONE_DIRECTION) -> void:
 	# Connect to the body_entered signal
 	location.body_entered.connect(_on_area_2d_body_entered.bind(direction))
 
 
-# Handles Area2D body_entered signals
+## Handles [signal Area2D.body_entered] signals and calls [method ZoneManager.change_zone].
+## When calling [method ZoneManager.change_zone], a [PackedScene] version
+## of the next zone specified by [param direction] is used.
 func _on_area_2d_body_entered(body: Node2D, direction: ZoneManager.ZONE_DIRECTION) -> void:
 	# Skip non-player interactions
 	if not body.is_in_group("Player"):
 		return
 	
-	_change_zone(direction)
+	# Get the filename for the next scene (Zone)
+	var new_zone_filename: StringName = ""
+	
+	match direction:
+		# Match the direction (ignore NONE)
+		ZoneManager.ZONE_DIRECTION.LEFT:
+			new_zone_filename = left_zone_filename
+		ZoneManager.ZONE_DIRECTION.UP:
+			new_zone_filename = up_zone_filename
+		ZoneManager.ZONE_DIRECTION.RIGHT:
+			new_zone_filename = right_zone_filename
+		ZoneManager.ZONE_DIRECTION.DOWN:
+			new_zone_filename = down_zone_filename
+	
+	# Load a PackedScene version of the next zone
+	var new_zone_packed: PackedScene = load(ZONE_PATH + new_zone_filename + ".tscn")
+	
+	# Call the _change_zone function directly
+	ZoneManager.change_zone(new_zone_packed, direction)

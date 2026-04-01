@@ -1,7 +1,9 @@
 [gd_scene format=4 uid="uid://bp4gxes4h00gx"]
 
 [ext_resource type="Script" uid="uid://4xihhr7r6pek" path="res://world/zone.gd" id="1_vdx57"]
-[ext_resource type="Texture2D" uid="uid://bd2lhqoki31fe" path="res://assets/temporary-tiles/programmer_art-terrain.png" id="2_jpbxd"]
+[ext_resource type="Texture2D" uid="uid://cy7gy5nqg8hwh" path="res://assets/temporary-tiles/programmer_art-terrain.png" id="2_jpbxd"]
+[ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="3_qvpru"]
+[ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime_enemy.tscn" id="4_gi73p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7xjt"]
 texture = ExtResource("2_jpbxd")
@@ -175,11 +177,10 @@ sources/0 = SubResource("TileSetAtlasSource_gi73p")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jpbxd"]
 size = Vector2(16, 64)
 
-[node name="ZoneTwo" type="Node2D" unique_id=1809486441 node_paths=PackedStringArray("left_zone_area", "default_spawn")]
+[node name="ZoneTwo" type="Node2D" unique_id=1809486441 node_paths=PackedStringArray("left_zone_area")]
 script = ExtResource("1_vdx57")
 left_zone_filename = &"zone_one"
 left_zone_area = NodePath("LeftArea2D")
-default_spawn = NodePath("")
 metadata/_custom_type_script = "uid://4xihhr7r6pek"
 
 [node name="BackgroundTileMapLayer" type="TileMapLayer" parent="." unique_id=139544724]
@@ -195,3 +196,16 @@ tile_set = SubResource("TileSet_fy0bh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArea2D" unique_id=1004615236]
 position = Vector2(-8, 64)
 shape = SubResource("RectangleShape2D_jpbxd")
+
+[node name="Player" parent="." unique_id=848334035 groups=["Player"] instance=ExtResource("3_qvpru")]
+unique_name_in_owner = true
+position = Vector2(124, 255)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1234369946]
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+
+[node name="SlimeEnemy" parent="." unique_id=538334106 instance=ExtResource("4_gi73p")]
+position = Vector2(317, 96)
+
+[node name="Bullets" type="Node" parent="." unique_id=205453929]

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cf8vbfpfm8jwn"]
 
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="1_53q0u"]
-[ext_resource type="Script" uid="uid://lbqjb3skgser" path="res://world/zone_manager.gd" id="1_c651c"]
 [ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime_enemy.tscn" id="3_xwkvk"]
 [ext_resource type="PackedScene" uid="uid://bufa3nu78h2f7" path="res://powerups/rapid_fire/rapid_fire.tscn" id="4_c651c"]
 [ext_resource type="PackedScene" uid="uid://ukvstgcvpp0c" path="res://powerups/sped_boost/speed_boost.tscn" id="5_3wy1v"]
@@ -9,11 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://c4kv058u3oyf5" path="res://enemies/tumbleweed/tumbleweed_enemy.tscn" id="7_4dugh"]
 
 [node name="Main" type="Node2D" unique_id=1701778157]
-
-[node name="ZoneManager" type="Node2D" parent="." unique_id=1871549057]
-script = ExtResource("1_c651c")
-starting_zone = &"zone_one"
-metadata/_custom_type_script = "uid://lbqjb3skgser"
 
 [node name="Player" parent="." unique_id=848334035 groups=["Player"] instance=ExtResource("1_53q0u")]
 unique_name_in_owner = true
