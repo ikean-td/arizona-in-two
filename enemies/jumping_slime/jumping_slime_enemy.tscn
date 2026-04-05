@@ -4,15 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://dq3avqf8vlk6r" path="res://assets/temporary-tiles/programmer_art-objects.png" id="2_x2kra"]
 [ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="3_vx467"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_12qxq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ynn2"]
 atlas = ExtResource("2_x2kra")
-region = Rect2(112, 80, 16, 16)
+region = Rect2(96, 64, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lwubp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_12qxq")
+"texture": SubResource("AtlasTexture_1ynn2")
 }],
 "loop": true,
 "name": &"down",
@@ -20,7 +20,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_12qxq")
+"texture": SubResource("AtlasTexture_1ynn2")
 }],
 "loop": true,
 "name": &"down_idle",
@@ -28,7 +28,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_12qxq")
+"texture": SubResource("AtlasTexture_1ynn2")
 }],
 "loop": true,
 "name": &"left",
@@ -36,7 +36,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_12qxq")
+"texture": SubResource("AtlasTexture_1ynn2")
 }],
 "loop": true,
 "name": &"left_idle",
@@ -44,7 +44,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_12qxq")
+"texture": SubResource("AtlasTexture_1ynn2")
 }],
 "loop": true,
 "name": &"right",
@@ -52,7 +52,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_12qxq")
+"texture": SubResource("AtlasTexture_1ynn2")
 }],
 "loop": true,
 "name": &"right_idle",
@@ -60,7 +60,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_12qxq")
+"texture": SubResource("AtlasTexture_1ynn2")
 }],
 "loop": true,
 "name": &"up",
@@ -68,7 +68,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_12qxq")
+"texture": SubResource("AtlasTexture_1ynn2")
 }],
 "loop": true,
 "name": &"up_idle",
@@ -98,7 +98,7 @@ one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1390256038]
 sprite_frames = SubResource("SpriteFrames_lwubp")
-animation = &"down"
+animation = &"up_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=561916679]
 position = Vector2(0, 1)
