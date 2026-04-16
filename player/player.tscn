@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://tauxm8sc6ng2"]
+[gd_scene load_steps=5 format=3 uid="uid://tauxm8sc6ng2"]
 
 [ext_resource type="Texture2D" uid="uid://cq1rc5q3fkuji" path="res://assets/icon.svg" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://difviypagft55" path="res://player/player.gd" id="1_rkbax"]
@@ -7,25 +7,26 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
 size = Vector2(16, 16)
 
-[node name="Player" type="CharacterBody2D" unique_id=848334035 groups=["player"]]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_rkbax")
 
-[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=135685977]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+scale = Vector2(0.95, 0.95)
 shape = SubResource("RectangleShape2D_rkbax")
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=572700105]
+[node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("1_oul6g")
 
-[node name="ShotgunPowerTimer" type="Timer" parent="." unique_id=273471058]
+[node name="ShotgunPowerTimer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
 
-[node name="BouncesPowerTimer" type="Timer" parent="." unique_id=1085899655]
+[node name="BouncesPowerTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 
-[node name="DamageComponent" parent="." unique_id=1495931984 instance=ExtResource("3_g1dw6")]
+[node name="DamageComponent" parent="." instance=ExtResource("3_g1dw6")]
 
 [connection signal="timeout" from="ShotgunPowerTimer" to="." method="_on_shotgun_power_timer_timeout"]
 [connection signal="timeout" from="BouncesPowerTimer" to="." method="_on_bounces_power_timer_timeout"]
