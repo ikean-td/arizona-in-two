@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bhufkkh6rclbt"]
+
+[ext_resource type="Script" uid="uid://4xihhr7r6pek" path="res://world/zone.gd" id="1_1yif6"]
+[ext_resource type="TileSet" uid="uid://beguowxpoc1hi" path="res://assets/tilesets/MainTiles.tres" id="2_5li5b"]
+
+[node name="Entrance" type="Node2D" unique_id=799799901]
+script = ExtResource("1_1yif6")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1332370738]
+tile_set = ExtResource("2_5li5b")
