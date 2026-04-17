@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://85alntk1uqvy"]
+[gd_scene load_steps=3 format=3 uid="uid://85alntk1uqvy"]
 
 [ext_resource type="Script" uid="uid://c1bqqgeisloee" path="res://ui/menu.gd" id="1_chbq3"]
 [ext_resource type="Texture2D" uid="uid://bh4ejilb0tl3f" path="res://assets/temporary-tiles/placeholderTitle.png" id="2_tneup"]
 
-[node name="Menu" type="Control" unique_id=273841113]
+[node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,7 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_chbq3")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1032804449]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -32,7 +32,7 @@ grow_vertical = 2
 texture = ExtResource("2_tneup")
 expand_mode = 1
 
-[node name="Start" type="Button" parent="." unique_id=862049404]
+[node name="Start" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -44,7 +44,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 20
 text = "Play"
 
-[node name="Settings" type="Button" parent="." unique_id=865767848]
+[node name="Settings" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -57,7 +57,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 20
 text = "Settings"
 
-[node name="Quit" type="Button" parent="." unique_id=328212165]
+[node name="Quit" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
